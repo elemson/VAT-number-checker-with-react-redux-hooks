@@ -1,6 +1,6 @@
-import thunk from "redux-thunk";
-import { applyMiddleware, createStore } from "redux";
-import reducers, { } from './reducers/root.Reducer'
+import thunk from "redux-thunk"; // allows to write action creators that returns a function instead of an action
+import { applyMiddleware, createStore } from "redux"; //.......redux
+import reducers, { } from './Redux/Reducers/Root.reducer'; //........add the reducers
 
 //reducers 
 

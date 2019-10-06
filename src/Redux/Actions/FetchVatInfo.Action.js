@@ -1,7 +1,7 @@
 
 export const fetchVatInfoAction = (value)=> {
 
-    return (dispatch) => {
+    return dispatch => {
         fetch(`httpS://vat.erply.com/numbers?vatNumber=${value}`)
         .then(res => { return res.json()
         
