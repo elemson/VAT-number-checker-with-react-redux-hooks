@@ -4,7 +4,7 @@ import {useSelector, useDispatch } from "react-redux";
 
 //actions
 import {fetchVatInfoAction } from "../Redux/Actions/FetchVatInfo.Action"
-
+import CustomButton from './Custom-button.component'
 
 
 function Form() {
@@ -46,7 +46,7 @@ function Form() {
                 <input type="text" name="" placeholder="Vat Number" onChange= {e => setVatNumber(e.target.value) }>
     
                 </input>
-                <input type="submit" ></input>
+                <CustomButton type="submit" >Check</CustomButton>
               </div>
               
             </form>
