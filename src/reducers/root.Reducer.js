@@ -3,7 +3,7 @@ import { vatInfo } from "./vatCheck.Reducer"
 
 //combine reducers
 const reducers = combineReducers({
-    vatInfo,
+    vatInfo
 
 })
 

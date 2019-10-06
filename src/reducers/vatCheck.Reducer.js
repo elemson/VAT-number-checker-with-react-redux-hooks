@@ -1,16 +1,17 @@
 
 vatInfo: {
-
 }
 
-export const vatInfo = (state = vatInfo, action) => {
+//destructure payload from action
+export const vatInfo = (state = vatInfo, {type, payload}) => {
 
-    if (action.type = "FETCH_VAT_INFO") {
+   switch(type){
 
-        state = { ...state, vatInfo: action.payload }
-
-    }
-
-    return state;
+    case 'FETCH_VAT_INFO':
+        return {
+            ...state, vatInfo: payload 
+        };
+        default:
+            return state;
+        }
 }
-
