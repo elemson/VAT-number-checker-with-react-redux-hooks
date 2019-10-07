@@ -1,10 +1,9 @@
 import { combineReducers } from "redux";
-import { vatInfo } from "./VatCheck.reducer"
+import { vatInfo } from "./VatCheck.reducer";
 
 //combine reducers
 const Reducers = combineReducers({
-    vatInfo
-})
-
+  vatInfo
+});
 
 export default Reducers;
