@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-//actions
 import { fetchVatInfoAction } from "../../Redux/Actions/FetchVatInfo.Action";
 import CustomButton from "../Custom-button-component/Custom-button.component";
 
-function Search() {
+const Search = () => {
   useEffect(() => {
-    fetchVatInfoAction();
-  });
+    getVatInfoAction("EE100247019");
+  }, []);
 
-  //set vatNumber
   let [vatNumber, setVatNumber] = useState("");
 
   const vatCheckSelector = useSelector(state => state);
@@ -21,33 +19,38 @@ function Search() {
     e.preventDefault();
     vatNumber === ""
       ? console.log("no Vat Number to search")
-      : console.log(vatCheckSelector.vatInfo.vatInfo);
-    getVatInfoAction(vatNumber);
+      : getVatInfoAction(vatNumber);
+    console.log(vatCheckSelector.vatInfo.vatInfo);
   };
 
   return (
     <React.Fragment>
       <div className="card card-body mb-4 p-4">
-        <h1 className="display-4 text-center">
-          <i className="fas fa-search" />
-          Get your Vat details
-        </h1>
+        <div className="d-flex justify-content-center align-items-center">
+          <i className="fa fa-search fa-10x" />
+          <div className="mb sm-100 ">
+            <h1>VAT LookUp</h1>
+          </div>
+        </div>
 
         <form onSubmit={getVatInfo}>
-          <div className="form-group">
+          <div className="form-group pt-4">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg "
               name=""
-              placeholder=""
+              placeholder="Enter ID. Example: EE100247019"
               onChange={e => setVatNumber(e.target.value)}
             />
           </div>
-          <CustomButton type="submit">Get Vat details</CustomButton>
+
+          <CustomButton type="submit">
+            <b>Get VAT details</b>
+          </CustomButton>
         </form>
       </div>
     </React.Fragment>
   );
-}
+};
 
 export default Search;

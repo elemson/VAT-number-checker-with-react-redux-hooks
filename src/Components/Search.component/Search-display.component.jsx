@@ -6,24 +6,40 @@ const SearchDisplay = () => {
   const vatCheckSelector = useSelector(state => state);
 
   let details = "";
-  vatCheckSelector
+  vatCheckSelector.vatInfo.vatInfo &&
+  vatCheckSelector.vatInfo.vatInfo.hasOwnProperty("Name")
     ? (details = (
-        <div className="col-md-6">
-          <div className="card-md-4">
-            <div className="card-body">
-              <p className="card-text">
-                <strong>
-                  <i className="fas fa-play">Address</i>
-                </strong>
-                : {vatCheckSelector.vatInfo.vatInfo.Address}
-                <p>{vatCheckSelector.vatInfo.vatInfo.Name}</p>
-                <p>{vatCheckSelector.vatInfo.vatInfo.CountryCode}</p>
-              </p>
-            </div>
-          </div>
+        <div className="col-mb-6 text-center pb-1">
+          <strong>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">VATNumber</th>
+                  <th scope="col">Country Code</th>
+                  <th scope="col">RequestDate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <td>{vatCheckSelector.vatInfo.vatInfo.Name}</td>
+
+                <td>{vatCheckSelector.vatInfo.vatInfo.Address}</td>
+                <td>{vatCheckSelector.vatInfo.vatInfo.VATNumber}</td>
+
+                <td>{vatCheckSelector.vatInfo.vatInfo.CountryCode}</td>
+
+                <td>{vatCheckSelector.vatInfo.vatInfo.RequestDate}</td>
+              </tbody>
+            </table>
+          </strong>
         </div>
       ))
-    : (details = "nothing tos show");
+    : (details = (
+        <div className="col-mb-6 text-center">
+          <Spinner />{" "}
+        </div>
+      ));
   return (
     <div>
       <p>{details}</p>

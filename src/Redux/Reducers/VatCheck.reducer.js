@@ -1,6 +1,3 @@
-vatInfo: {
-}
-
 //destructure payload from action
 export const vatInfo = (state = { vatInfo: [] }, { type, payload }) => {
   switch (type) {

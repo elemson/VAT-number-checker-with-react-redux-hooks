@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "./Components/Layout.component/Navbar.component";
 import Search from "./Components/Search.component/Search-form.component";
 import SearchDisplay from "./Components/Search.component/Search-display.component";
