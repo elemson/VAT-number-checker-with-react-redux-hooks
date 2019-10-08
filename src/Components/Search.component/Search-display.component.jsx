@@ -6,8 +6,14 @@ const SearchDisplay = () => {
   const vatCheckSelector = useSelector(state => state);
 
   let details = "";
-  vatCheckSelector.vatInfo.vatInfo &&
-  vatCheckSelector.vatInfo.vatInfo.hasOwnProperty("Name")
+  !vatCheckSelector.vatInfo.vatInfo.hasOwnProperty("Name")
+    ? (details = (
+        <div className="col-mb-6 text-center">
+          Please Input Correct Vat Number
+        </div>
+      ))
+    : vatCheckSelector.vatInfo.vatInfo &&
+      vatCheckSelector.vatInfo.vatInfo.hasOwnProperty("Name")
     ? (details = (
         <div className="col-mb-6 text-center pb-1">
           <strong>
@@ -37,7 +43,7 @@ const SearchDisplay = () => {
       ))
     : (details = (
         <div className="col-mb-6 text-center">
-          <Spinner />{" "}
+          <Spinner />
         </div>
       ));
   return (

@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchVatInfoAction } from "../../Redux/Actions/FetchVatInfo.Action";
 import CustomButton from "../Custom-button-component/Custom-button.component";
 
-const Search = () => {
-  useEffect(() => {
-    getVatInfoAction("EE100247019");
-  }, []);
+const Search = props => {
+  // useEffect(() => {
+  //   getVatInfoAction("");
+  // }, []);
 
   let [vatNumber, setVatNumber] = useState("");
 
@@ -18,7 +18,7 @@ const Search = () => {
   const getVatInfo = e => {
     e.preventDefault();
     vatNumber === ""
-      ? console.log("no Vat Number to search")
+      ? alert("No VAT Number to search")
       : getVatInfoAction(vatNumber);
     console.log(vatCheckSelector.vatInfo.vatInfo);
   };

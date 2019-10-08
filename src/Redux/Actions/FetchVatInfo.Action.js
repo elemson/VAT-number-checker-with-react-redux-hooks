@@ -1,3 +1,7 @@
+import FetchActionTypes from "./FetchVatInfo.types.";
+import { promised } from "q";
+
+//Reduc thunk
 export const fetchVatInfoAction = value => {
   return dispatch => {
     fetch(`httpS://vat.erply.com/numbers?vatNumber=${value}`)
@@ -6,10 +10,10 @@ export const fetchVatInfoAction = value => {
       })
       .then(JSONres => {
         //dispatch the action
-        dispatch({ type: "FETCH_VAT_INFO", payload: JSONres });
+        dispatch({ type: FetchActionTypes.FETCH_VAT_INFO, payload: JSONres });
       })
       .catch(err => {
-        console.log(err);
+        alert(err);
       });
   };
 };

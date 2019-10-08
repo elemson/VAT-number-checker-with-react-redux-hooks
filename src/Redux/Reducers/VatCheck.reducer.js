@@ -6,6 +6,7 @@ export const vatInfo = (state = { vatInfo: [] }, { type, payload }) => {
         ...state,
         vatInfo: payload
       };
+
     default:
       return state;
   }
