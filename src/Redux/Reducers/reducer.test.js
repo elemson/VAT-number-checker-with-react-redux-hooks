@@ -1,13 +1,21 @@
 import * as reducers from "./VatCheck.reducer";
-import * as FETCH_VAT_INFO from "../Actions/FetchVatInfo.types";
+import FetchActionTypes from "../Actions/FetchVatInfo.types";
 
+const initialState = { isFetching: false, errorMessage: "", vatInfo: [] };
 describe("vatInfo", () => {
-  const initialState = {
-    vatInfo: []
-  };
   it("Should return the initial state", () => {
-    expect(reducers.vatInfo(undefined, {})).toEqual({
-      vatInfo: []
-    });
+    expect(reducers.vatInfo(undefined, {})).toEqual(initialState);
   });
+
+  // it("should handle request vat action", () => {
+  //   expect(
+  //     reducers
+  //       .vatInfo(
+  //         reducers.vatInfo(initialState, {
+  //           type: FetchActionTypes.FETCH_VAT_REQUEST
+  //         })
+  //       )
+  //       .toEqual({ isFetching: true, errorMessage: "", vatInfo: [] })
+  //   );
+  // });
 });

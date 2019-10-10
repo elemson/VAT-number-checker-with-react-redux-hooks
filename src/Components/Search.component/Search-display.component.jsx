@@ -25,7 +25,7 @@ const SearchDisplay = () => {
                   <th scope="col">VATNumber</th>
                   <th scope="col">Country Code</th>
                   <th scope="col">RequestDate</th>
-                  <th scope="col">Valid</th>
+                  <th scope="col">Validity</th>
                 </tr>
               </thead>
               <tbody>
@@ -41,7 +41,17 @@ const SearchDisplay = () => {
         </div>
       ))
     : vatCheckSelector.vatInfo.vatInfo.hasOwnProperty("error")
-    ? (details = <div className="col-mb-6 text-center">No record found</div>)
+    ? (details = (
+        <div className="alert alert-danger text-center" role="alert">
+          No record Found
+        </div>
+      ))
+    : vatCheckSelector.vatInfo.vatInfo.Valid === false
+    ? (details = (
+        <div className="alert alert-danger text-center" role="alert">
+          The Vat is not Valid
+        </div>
+      ))
     : (details = <div className="col-mb-6 text-center"></div>);
 
   return <div>{details}</div>;

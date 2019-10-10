@@ -14,22 +14,7 @@ export const fetchVatFailure = error => ({
   payload: error
 });
 
-// export const fetchVatInfoAction = value => {
-//   return async dispatch => {
-//     dispatch(fetchVatRequest(value));
-//     try {
-//       let response = await fetch(
-//         "https://vat.erply.com/numbers?vatNumber=${value}"
-//       );
-//       let json = await response.json();
-//       dispatch(fetchVatSuccess(json.results));
-//     } catch (error) {
-//       dispatch(fetchVatFailure(error));
-//     }
-//   };
-// };
-
-//Reduc thunk
+//Redux thunk
 export const fetchVatInfoAction = value => {
   return async dispatch => {
     dispatch(fetchVatRequest());
