@@ -3,21 +3,27 @@ import { useSelector } from "react-redux";
 import Spinner from "../Layout.component/Spinner.component";
 
 const SearchDisplay = () => {
+  // pull state into component
   const vatCheckSelector = useSelector(state => state);
-  console.log(vatCheckSelector);
 
   let details = "";
+
+  //isFetching? ,If yes Display Spinner
   vatCheckSelector.vatInfo.isFetching
     ? (details = (
-        <div className="col-mb-6 text-center pb-1">
+        <div className="col-mb-6 text-center">
           <Spinner />
         </div>
       ))
-    : vatCheckSelector.vatInfo.vatInfo.hasOwnProperty("Name")
+    : //if state has a property of valid equals true, display VAT data
+    vatCheckSelector.vatInfo.vatInfo.Valid
     ? (details = (
         <div className="col-mb-6 text-center pb-1">
+          <div className="alert alert-success" role="alert">
+            Success
+          </div>
           <strong>
-            <table class="table table-striped">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">Name</th>
@@ -29,30 +35,34 @@ const SearchDisplay = () => {
                 </tr>
               </thead>
               <tbody>
-                <td>{vatCheckSelector.vatInfo.vatInfo.Name}</td>
-                <td>{vatCheckSelector.vatInfo.vatInfo.Address}</td>
-                <td>{vatCheckSelector.vatInfo.vatInfo.VATNumber}</td>
-                <td>{vatCheckSelector.vatInfo.vatInfo.CountryCode}</td>
-                <td>{vatCheckSelector.vatInfo.vatInfo.RequestDate}</td>
-                <td>{vatCheckSelector.vatInfo.vatInfo.Valid.toString()}</td>
+                <tr>
+                  <td>{vatCheckSelector.vatInfo.vatInfo.Name}</td>
+                  <td>{vatCheckSelector.vatInfo.vatInfo.Address}</td>
+                  <td>{vatCheckSelector.vatInfo.vatInfo.VATNumber}</td>
+                  <td>{vatCheckSelector.vatInfo.vatInfo.CountryCode}</td>
+                  <td>{vatCheckSelector.vatInfo.vatInfo.RequestDate}</td>
+                  <td>{vatCheckSelector.vatInfo.vatInfo.Valid.toString()}</td>
+                </tr>
               </tbody>
             </table>
           </strong>
         </div>
       ))
-    : vatCheckSelector.vatInfo.vatInfo.hasOwnProperty("error")
+    : //display error if  state throw error
+    vatCheckSelector.vatInfo.vatInfo.error
     ? (details = (
         <div className="alert alert-danger text-center" role="alert">
-          No record Found
+          {vatCheckSelector.vatInfo.vatInfo.error}
         </div>
       ))
-    : vatCheckSelector.vatInfo.vatInfo.Valid === false
+    : //If VAT number is invalid, display error
+    vatCheckSelector.vatInfo.vatInfo.Valid === false
     ? (details = (
         <div className="alert alert-danger text-center" role="alert">
-          The Vat is not Valid
+          Oh Sorry, Your Vat umber does not match our records
         </div>
       ))
-    : (details = <div className="col-mb-6 text-center"></div>);
+    : (details = null);
 
   return <div>{details}</div>;
 };

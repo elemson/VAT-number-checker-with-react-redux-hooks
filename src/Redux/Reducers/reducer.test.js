@@ -1,6 +1,7 @@
 import * as reducers from "./VatCheck.reducer";
 import FetchActionTypes from "../Actions/FetchVatInfo.types";
 
+//test initial state in reducers
 const initialState = { isFetching: false, errorMessage: "", vatInfo: [] };
 describe("vatInfo", () => {
   it("Should return the initial state", () => {

@@ -5,11 +5,13 @@ import SearchDisplay from "./Components/Search.component/Search-display.componen
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Search />
-      <SearchDisplay />
-    </div>
+    <React.Fragment>
+      <div className="App">
+        <Navbar />
+        <Search />
+        <SearchDisplay />
+      </div>
+    </React.Fragment>
   );
 }
 

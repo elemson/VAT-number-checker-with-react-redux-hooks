@@ -1,5 +1,6 @@
 import FetchActionTypes from "./FetchVatInfo.types";
 
+//redux actions
 export const fetchVatRequest = () => ({
   type: FetchActionTypes.FETCH_VAT_REQUEST
 });
@@ -14,7 +15,7 @@ export const fetchVatFailure = error => ({
   payload: error
 });
 
-//Redux thunk
+//Asyn redux
 export const fetchVatInfoAction = value => {
   return async dispatch => {
     dispatch(fetchVatRequest());
@@ -27,7 +28,7 @@ export const fetchVatInfoAction = value => {
         dispatch(fetchVatSuccess(JSONres));
       })
       .catch(err => {
-        dispatch(fetchVatFailure(err));
+        dispatch(fetchVatFailure(err.response));
       });
   };
 };

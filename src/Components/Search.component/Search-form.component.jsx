@@ -8,9 +8,11 @@ import CustomButton from "../Custom-button-component/Custom-button.component";
 const Search = props => {
   let [vatNumber, setVatNumber] = useState("");
 
+  //pass input data into reducers
   const dispatch = useDispatch();
   const getVatInfoAction = vatNumber => dispatch(fetchVatInfoAction(vatNumber));
 
+  //dispatch actions when submit is clicked
   const getVatInfo = e => {
     e.preventDefault();
     vatNumber === ""
@@ -19,8 +21,9 @@ const Search = props => {
   };
 
   return (
+    //forms and everything else you can see - Front-End
     <React.Fragment>
-      <div className="card card-body mb-4 p-4">
+      <div className="card card-body pb-1">
         <div className="d-flex justify-content-center align-items-center">
           <i className="fa fa-search fa-10x" />
           <div className="mb sm-100 ">
@@ -29,7 +32,7 @@ const Search = props => {
         </div>
 
         <form onSubmit={getVatInfo}>
-          <div className="form-group pt-4">
+          <div className="form-group pt-2 pb-1">
             <input
               type="text"
               className="form-control form-control-lg "

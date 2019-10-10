@@ -1,5 +1,5 @@
 import FetchActionTypes from "../Actions/FetchVatInfo.types";
-
+//App intial state
 const initialState = {
   isFetching: false,
   errorMessage: "",
@@ -13,15 +13,15 @@ export const vatInfo = (state = initialState, { type, payload }) => {
     case FetchActionTypes.FETCH_VAT_REQUEST:
       return { ...state, isFetching: true };
 
-    case FetchActionTypes.FETCH_VAT_FAILURE:
-      return { ...state, isFetching: false, errorMessage: payload };
-
     case FetchActionTypes.FETCH_VAT_SUCCESS:
       return { ...state, isFetching: false, vatInfo: payload };
+
+    case FetchActionTypes.FETCH_VAT_FAILURE:
+      return { ...state, isFetching: false, errorMessage: payload };
 
     default:
       return state;
   }
 };
 
-export default vatInfo;
+export default initialState;
