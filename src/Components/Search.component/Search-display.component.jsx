@@ -59,7 +59,7 @@ const SearchDisplay = () => {
     vatCheckSelector.vatInfo.vatInfo.Valid === false
     ? (details = (
         <div className="alert alert-danger text-center" role="alert">
-          Oh Sorry, Your Vat umber does not match our records
+          Oh Sorry, the Vat number does not match our records
         </div>
       ))
     : (details = null);
