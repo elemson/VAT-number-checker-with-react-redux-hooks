@@ -23,7 +23,7 @@ const Search = props => {
   return (
     //forms and everything else you can see - Front-End
     <React.Fragment>
-      <div className="card card-body pb-1">
+      <div className="col-mb-6 text-center mb-0">
         <div className="d-flex justify-content-center align-items-center">
           <i className="fa fa-search fa-10x" />
           <div className="mb sm-100 ">
