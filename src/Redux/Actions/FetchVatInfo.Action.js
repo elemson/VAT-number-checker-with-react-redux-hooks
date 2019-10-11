@@ -29,6 +29,7 @@ export const fetchVatInfoAction = value => {
       })
       .catch(err => {
         dispatch(fetchVatFailure(err.response));
+        console.log(err);
       });
   };
 };

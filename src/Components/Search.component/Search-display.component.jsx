@@ -18,8 +18,8 @@ const SearchDisplay = () => {
     : //if state has a property of valid equals true, display VAT data
     vatCheckSelector.vatInfo.vatInfo.Valid
     ? (details = (
-        <div className="col-mb-6 text-center pb-1">
-          <div className="alert alert-success" role="alert">
+        <div className="col-mb-6 text-center mb-0">
+          <div className="alert alert-success mb-0" role="alert">
             Success
           </div>
           <strong>
@@ -51,14 +51,20 @@ const SearchDisplay = () => {
     : //display error if  state throw error
     vatCheckSelector.vatInfo.vatInfo.error
     ? (details = (
-        <div className="alert alert-danger text-center" role="alert">
+        <div
+          className="alert alert-danger col-mb-6 text-center pt-1"
+          role="alert"
+        >
           {vatCheckSelector.vatInfo.vatInfo.error}
         </div>
       ))
     : //If VAT number is invalid, display error
     vatCheckSelector.vatInfo.vatInfo.Valid === false
     ? (details = (
-        <div className="alert alert-danger text-center" role="alert">
+        <div
+          className="alert alert-danger col-mb-6 text-center pt-1"
+          role="alert"
+        >
           Oh Sorry, the Vat number does not match our records
         </div>
       ))
